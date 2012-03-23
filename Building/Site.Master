@@ -34,7 +34,12 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Главная"/>
                         <asp:MenuItem NavigateUrl="~/Admin/Default.aspx" Text="Админка" />
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="О нас"/>
+                        <asp:MenuItem NavigateUrl="~/About1.aspx" Text="Цели"/>
+                        <asp:MenuItem NavigateUrl="~/About2.aspx" Text="Создание"/>
+                        <asp:MenuItem NavigateUrl="~/About3.aspx" Text="Деятельность"/>
+                        <asp:MenuItem NavigateUrl="~/About4.aspx" Text="Развитие персонала"/>
+                        <asp:MenuItem NavigateUrl="~/About5.aspx" Text="Сотрудничество"/>
+                        <asp:MenuItem NavigateUrl="~/About6.aspx" Text="Сотрудники"/>
                     </Items>
                 </asp:Menu>
             </div>

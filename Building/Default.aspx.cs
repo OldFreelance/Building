@@ -11,7 +11,7 @@ namespace Building
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            EntityDataSource1.WhereParameters["Login"].DefaultValue = HttpContext.Current.User.Identity.Name;
+            //EntityDataSource1.WhereParameters["Login"].DefaultValue = HttpContext.Current.User.Identity.Name;
         }
     }
 }

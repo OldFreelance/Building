@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="About1.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
@@ -72,6 +73,11 @@
     <Content Include="App_Data\Building_log.ldf">
       <DependentUpon>Building.mdf</DependentUpon>
     </Content>
+    <Content Include="About3.aspx" />
+    <Content Include="About4.aspx" />
+    <Content Include="About5.aspx" />
+    <Content Include="About6.aspx" />
+    <Content Include="About2.aspx" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Mail.aspx" />
     <Content Include="Styles\Site.css" />
@@ -95,6 +101,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About1.aspx.cs">
+      <DependentUpon>About1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About1.aspx.designer.cs">
+      <DependentUpon>About1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
@@ -194,6 +207,41 @@
     </Compile>
     <Compile Include="Code\BuildingMembershipProvider.cs" />
     <Compile Include="Code\BuildingRoleProvider.cs" />
+    <Compile Include="About3.aspx.cs">
+      <DependentUpon>About3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About3.aspx.designer.cs">
+      <DependentUpon>About3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About4.aspx.cs">
+      <DependentUpon>About4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About4.aspx.designer.cs">
+      <DependentUpon>About4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About5.aspx.cs">
+      <DependentUpon>About5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About5.aspx.designer.cs">
+      <DependentUpon>About5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About6.aspx.cs">
+      <DependentUpon>About6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About6.aspx.designer.cs">
+      <DependentUpon>About6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About2.aspx.cs">
+      <DependentUpon>About2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About2.aspx.designer.cs">
+      <DependentUpon>About2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
