@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Главная" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="Building._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -36,6 +36,7 @@
             <asp:Parameter runat="server" Name="Login" Type="String"/>
         </WhereParameters>
     </asp:EntityDataSource>
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Mail.aspx">Обратная связь</asp:HyperLink>
     <% }
        else
        {%>

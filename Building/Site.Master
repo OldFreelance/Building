@@ -14,7 +14,7 @@
         <div class="header">
             <div class="title">
                 <h1>
-                    Сайт строительной компании
+                    ООО «Пирамит»
                 </h1>
             </div>
             <div class="loginDisplay">
@@ -28,12 +28,13 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo.jpg" />
             <div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Главная"/>
                         <asp:MenuItem NavigateUrl="~/Admin/Default.aspx" Text="Админка" />
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="О программе"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="О нас"/>
                     </Items>
                 </asp:Menu>
             </div>

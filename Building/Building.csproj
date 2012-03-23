@@ -72,6 +72,8 @@
     <Content Include="App_Data\Building_log.ldf">
       <DependentUpon>Building.mdf</DependentUpon>
     </Content>
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Mail.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -201,6 +203,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mail.aspx.cs">
+      <DependentUpon>Mail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mail.aspx.designer.cs">
+      <DependentUpon>Mail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
