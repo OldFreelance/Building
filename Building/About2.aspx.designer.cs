@@ -9,7 +9,9 @@
 
 namespace Building
 {
-    public partial class About
+
+
+    public partial class About2
     {
     }
 }
