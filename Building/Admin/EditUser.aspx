@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Id" 
         DataSourceID="EntityDataSource1" DefaultMode="Edit" 
         onitemcommand="FormView1_ItemCommand" 
@@ -23,7 +27,13 @@
                 </tr>
                 <tr>
                     <td>День рождения:</td>
-                    <td><asp:Calendar ID="Calendar1" runat="server" SelectedDate='<%# Bind("Birthday") %>' VisibleDate='<%# Eval("Birthday") %>'></asp:Calendar></td>
+                    <td>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:Calendar ID="Calendar1" runat="server" SelectedDate='<%# Bind("Birthday") %>' VisibleDate='<%# Eval("Birthday") %>'></asp:Calendar>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
                 </tr>
                 <tr>
                     <td>Должность:</td>
@@ -71,7 +81,13 @@
                 </tr>
                 <tr>
                     <td>День рождения:</td>
-                    <td><asp:Calendar ID="Calendar1" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>'></asp:Calendar></td>
+                    <td>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:Calendar ID="Calenda2" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>'></asp:Calendar>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
                 </tr>
                 <tr>
                     <td>Должность:</td>

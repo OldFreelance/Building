@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Id" 
         DataSourceID="EntityDataSource1" DefaultMode="Edit" 
         onitemcommand="FormView1_ItemCommand" 
@@ -15,11 +19,23 @@
                 </tr>
                 <tr>
                     <td>Дата начала:</td>
-                    <td><asp:Calendar ID="DateStartCalendar" runat="server" SelectedDate='<%# Bind("DateStart") %>' VisibleDate='<%# Eval("DateStart") %>' /></td>
+                    <td>
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+                                <asp:Calendar ID="DateStartCalendar1" runat="server" SelectedDate='<%# Bind("DateStart") %>' VisibleDate='<%# Eval("DateStart") %>' />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
                 </tr>
                 <tr>
                     <td>Дата оконч:</td>
-                    <td><asp:Calendar ID="DateEndCalendar" runat="server" SelectedDate='<%# Bind("DateEnd") %>' VisibleDate='<%# Eval("DateEnd") %>'/></td>
+                    <td>
+                        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                            <ContentTemplate>
+                                <asp:Calendar ID="DateEndCalendar1" runat="server" SelectedDate='<%# Bind("DateEnd") %>' VisibleDate='<%# Eval("DateEnd") %>'/>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
                 </tr>
                 <tr>
                     <td>Бригадир:</td>
@@ -51,11 +67,23 @@
                 </tr>
                 <tr>
                     <td>Дата начала:</td>
-                    <td><asp:Calendar ID="DateStartCalendar" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>' /></td>
+                    <td>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:Calendar ID="DateStartCalendar" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>' />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
                 </tr>
                 <tr>
                     <td>Дата оконч:</td>
-                    <td><asp:Calendar ID="DateEndCalendar" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>'/></td>
+                    <td>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                <asp:Calendar ID="DateEndCalendar" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>'/>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
                 </tr>
                 <tr>
                     <td>Бригадир:</td>
@@ -67,7 +95,7 @@
                         <asp:EntityDataSource ID="EntityDataSource2" runat="server" 
                             ConnectionString="name=BuildingEntities" 
                             DefaultContainerName="BuildingEntities" EnableFlattening="False" 
-                            EntitySetName="Users" Select="it.[Id], it.[FIO]" Where="it.IsForeman=True">
+                            EntitySetName="Users" Select="it.[Id], it.[FIO]" Where="it.PostId=2">
                         </asp:EntityDataSource>
                     </td>
                 </tr>

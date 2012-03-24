@@ -31,7 +31,7 @@ namespace Building
             SMTPServer.EnableSsl = true;
             SMTPServer.Port = 587;
 
-            lblMessage.Text = "Писмо отправлено";
+            lblMessage.Text = "Письмо отправлено";
             lblMessage.Visible = true;
 
             try
