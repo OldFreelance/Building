@@ -78,7 +78,16 @@
     <Content Include="About5.aspx" />
     <Content Include="About6.aspx" />
     <Content Include="About2.aspx" />
+    <Content Include="Galery.aspx" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\4.jpg" />
+    <Content Include="Images\5.jpg" />
+    <Content Include="Images\6.jpg" />
     <Content Include="Images\logo.jpg" />
+    <Content Include="Images\UmarovAA.jpg" />
+    <Content Include="Images\SelyanovaSV.jpg" />
     <Content Include="Mail.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -249,6 +258,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Galery.aspx.cs">
+      <DependentUpon>Galery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Galery.aspx.designer.cs">
+      <DependentUpon>Galery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -280,6 +296,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Files\Prays_polimer_materialov.doc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
