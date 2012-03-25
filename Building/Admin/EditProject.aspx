@@ -16,20 +16,20 @@
             <table>
                 <tr>
                     <td>Место:</td>
-                    <td><asp:TextBox ID="BuildingPlaceTextBox" runat="server" Text='<%# Bind("BuildingPlace") %>' /></td>
+                    <td><asp:TextBox ID="BuildingPlaceTextBox" runat="server" Text='<%# Bind("BuildingPlace") %>' Width="300"/></td>
                 </tr>
                 <tr>
                     <td>Дата начала:</td>
                     <td>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DateStart") %>'></asp:TextBox>
-                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TextBox1" SelectedDate='<%# Eval("DateStart") %>'/>
+                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TextBox1" SelectedDate='<%# Eval("DateStart") %>'  Format="D"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Дата оконч:</td>
                     <td>
                         <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("DateEnd") %>'></asp:TextBox>
-                        <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TextBox2" SelectedDate='<%# Eval("DateEnd") %>'/>
+                        <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TextBox2" SelectedDate='<%# Eval("DateEnd") %>' Format="D"/>
                     </td>
                 </tr>
                 <tr>
@@ -58,20 +58,20 @@
             <table>
                 <tr>
                     <td>Место:</td>
-                    <td><asp:TextBox ID="BuildingPlaceTextBox" runat="server" Text='<%# Bind("BuildingPlace") %>' /></td>
+                    <td><asp:TextBox ID="BuildingPlaceTextBox" runat="server" Text='<%# Bind("BuildingPlace") %>' Width="300"/></td>
                 </tr>
                 <tr>
                     <td>Дата начала:</td>
                     <td>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DateStart") %>'></asp:TextBox>
-                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TextBox1" SelectedDate='<%# Eval("DateStart") %>'/>
+                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TextBox1" SelectedDate='<%# Eval("DateStart") %>' Format="D"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Дата оконч:</td>
                     <td>
                         <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("DateEnd") %>'></asp:TextBox>
-                        <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TextBox2" SelectedDate='<%# Eval("DateEnd") %>'/>
+                        <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TextBox2" SelectedDate='<%# Eval("DateEnd") %>' Format="D"/>
                     </td>
                 </tr>
                 <tr>

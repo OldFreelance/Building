@@ -31,7 +31,7 @@
                     <td>День рождения:</td>
                     <td>
                         <asp:TextBox ID="txtBirthday" runat="server" Text='<%# Bind("Birthday") %>'></asp:TextBox>
-                        <asp:CalendarExtender  ID="CalendarExtender1"  runat="server" TargetControlID="txtBirthday" SelectedDate='<%# Eval("Birthday") %>'/>
+                        <asp:CalendarExtender  ID="CalendarExtender1"  runat="server" TargetControlID="txtBirthday" SelectedDate='<%# Eval("Birthday") %>' Format="D"/>
                     </td>
                 </tr>
                 <tr>
@@ -82,7 +82,7 @@
                     <td>День рождения:</td>
                     <td>
                         <asp:TextBox ID="txtBirthday" runat="server" Text='<%# Bind("Birthday") %>'></asp:TextBox>
-                        <asp:CalendarExtender  ID="CalendarExtender1"  runat="server" TargetControlID="txtBirthday" SelectedDate='<%# Eval("Birthday") %>'/>
+                        <asp:CalendarExtender  ID="CalendarExtender1"  runat="server" TargetControlID="txtBirthday" SelectedDate='<%# Eval("Birthday") %>' Format="D"/>
                     </td>
                 </tr>
                 <tr>

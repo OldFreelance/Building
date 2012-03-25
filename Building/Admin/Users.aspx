@@ -20,7 +20,7 @@
             </asp:TemplateField>
             <asp:BoundField DataField="Login" HeaderText="Логин" SortExpression="Login" />
             <asp:BoundField DataField="FIO" HeaderText="ФИО" SortExpression="FIO" />
-            <asp:BoundField DataField="Birthday" HeaderText="Дата рождения" SortExpression="Birthday" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Birthday" HeaderText="Дата рождения" SortExpression="Birthday" DataFormatString="{0:D}" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
