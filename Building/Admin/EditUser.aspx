@@ -1,10 +1,12 @@
 ﻿<%@ Page Title="Редактирование пользователя" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditUser.aspx.cs" Inherits="Building.Admin.EditUser" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableScriptLocalization="True" EnableScriptGlobalization="True">
+    </asp:ToolkitScriptManager>
 
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Id" 
         DataSourceID="EntityDataSource1" DefaultMode="Edit" 
@@ -28,11 +30,8 @@
                 <tr>
                     <td>День рождения:</td>
                     <td>
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <asp:Calendar ID="Calendar1" runat="server" SelectedDate='<%# Bind("Birthday") %>' VisibleDate='<%# Eval("Birthday") %>'></asp:Calendar>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                        <asp:TextBox ID="txtBirthday" runat="server" Text='<%# Bind("Birthday") %>'></asp:TextBox>
+                        <asp:CalendarExtender  ID="CalendarExtender1"  runat="server" TargetControlID="txtBirthday" SelectedDate='<%# Eval("Birthday") %>'/>
                     </td>
                 </tr>
                 <tr>
@@ -82,11 +81,8 @@
                 <tr>
                     <td>День рождения:</td>
                     <td>
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <asp:Calendar ID="Calenda2" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>'></asp:Calendar>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                        <asp:TextBox ID="txtBirthday" runat="server" Text='<%# Bind("Birthday") %>'></asp:TextBox>
+                        <asp:CalendarExtender  ID="CalendarExtender1"  runat="server" TargetControlID="txtBirthday" SelectedDate='<%# Eval("Birthday") %>'/>
                     </td>
                 </tr>
                 <tr>

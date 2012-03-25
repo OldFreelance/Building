@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="Редактирование проекта" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditProject.aspx.cs" Inherits="Building.Admin.EditProject" %>
+<%@ Register TagPrefix="asp" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableScriptLocalization="True" EnableScriptGlobalization="True">
+    </asp:ToolkitScriptManager>
 
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Id" 
         DataSourceID="EntityDataSource1" DefaultMode="Edit" 
@@ -20,21 +21,15 @@
                 <tr>
                     <td>Дата начала:</td>
                     <td>
-                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                            <ContentTemplate>
-                                <asp:Calendar ID="DateStartCalendar1" runat="server" SelectedDate='<%# Bind("DateStart") %>' VisibleDate='<%# Eval("DateStart") %>' />
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DateStart") %>'></asp:TextBox>
+                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TextBox1" SelectedDate='<%# Eval("DateStart") %>'/>
                     </td>
                 </tr>
                 <tr>
                     <td>Дата оконч:</td>
                     <td>
-                        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-                            <ContentTemplate>
-                                <asp:Calendar ID="DateEndCalendar1" runat="server" SelectedDate='<%# Bind("DateEnd") %>' VisibleDate='<%# Eval("DateEnd") %>'/>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("DateEnd") %>'></asp:TextBox>
+                        <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TextBox2" SelectedDate='<%# Eval("DateEnd") %>'/>
                     </td>
                 </tr>
                 <tr>
@@ -68,21 +63,15 @@
                 <tr>
                     <td>Дата начала:</td>
                     <td>
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <asp:Calendar ID="DateStartCalendar" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>' />
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DateStart") %>'></asp:TextBox>
+                        <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TextBox1" SelectedDate='<%# Eval("DateStart") %>'/>
                     </td>
                 </tr>
                 <tr>
                     <td>Дата оконч:</td>
                     <td>
-                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                            <ContentTemplate>
-                                <asp:Calendar ID="DateEndCalendar" runat="server" SelectedDate='<%# DateTime.Now %>' VisibleDate='<%# DateTime.Now %>'/>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("DateEnd") %>'></asp:TextBox>
+                        <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TextBox2" SelectedDate='<%# Eval("DateEnd") %>'/>
                     </td>
                 </tr>
                 <tr>
