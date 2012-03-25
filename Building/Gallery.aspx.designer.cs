@@ -10,7 +10,7 @@
 namespace Building {
     
     
-    public partial class Galery {
+    public partial class Gallery {
         
         /// <summary>
         /// Image1 control.

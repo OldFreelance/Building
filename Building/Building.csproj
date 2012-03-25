@@ -57,7 +57,6 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="About1.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
@@ -69,6 +68,7 @@
     <Content Include="Admin\EditPost.aspx" />
     <Content Include="Admin\EditProject.aspx" />
     <Content Include="Admin\EditUser.aspx" />
+    <Content Include="Admin\Messages.aspx" />
     <Content Include="Admin\Posts.aspx" />
     <Content Include="Admin\Projects.aspx" />
     <Content Include="Admin\Users.aspx" />
@@ -81,7 +81,7 @@
     <Content Include="About5.aspx" />
     <Content Include="About6.aspx" />
     <Content Include="About2.aspx" />
-    <Content Include="Galery.aspx" />
+    <Content Include="Gallery.aspx" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
     <Content Include="Images\3.jpg" />
@@ -107,13 +107,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="About1.aspx.cs">
       <DependentUpon>About1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,6 +184,13 @@
     <Compile Include="Admin\EditUser.aspx.designer.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Posts.aspx.cs">
       <DependentUpon>Posts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -261,12 +261,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Galery.aspx.cs">
-      <DependentUpon>Galery.aspx</DependentUpon>
+    <Compile Include="Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Galery.aspx.designer.cs">
-      <DependentUpon>Galery.aspx</DependentUpon>
+    <Compile Include="Gallery.aspx.designer.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

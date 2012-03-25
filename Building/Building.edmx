@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="BuildingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="BuildingModelStoreContainer">
+          <EntitySet Name="Messages" EntityType="BuildingModel.Store.Messages" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Posts" EntityType="BuildingModel.Store.Posts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Projects" EntityType="BuildingModel.Store.Projects" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Users" EntityType="BuildingModel.Store.Users" store:Type="Tables" Schema="dbo" />
@@ -18,6 +19,16 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nick" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Posts">
           <Key>
             <PropertyRef Name="Id" />
@@ -91,6 +102,7 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Project" EntitySet="Projects" />
           </AssociationSet>
+          <EntitySet Name="Messages" EntityType="BuildingModel.Message" />
         </EntityContainer>
         <EntityType Name="Post">
           <Key>
@@ -153,6 +165,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nick" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -195,6 +217,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="BuildingModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Nick" ColumnName="Nick" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -216,17 +249,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Building">
-        <EntityTypeShape EntityType="BuildingModel.Post" Width="1.5" PointX="0.75" PointY="1.625" Height="1.7879850260416657" />
-        <EntityTypeShape EntityType="BuildingModel.Project" Width="1.5" PointX="5.25" PointY="1.375" Height="2.3648893229166656" />
-        <EntityTypeShape EntityType="BuildingModel.User" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833331" />
+        <EntityTypeShape EntityType="BuildingModel.Post" Width="1.5" PointX="0.75" PointY="1.625" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="BuildingModel.Project" Width="1.5" PointX="5.25" PointY="1.375" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BuildingModel.User" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833313" />
         <AssociationConnector Association="BuildingModel.FK_Users_Posts" >
-          <ConnectorPoint PointX="2.25" PointY="2.5189925130208328" />
-          <ConnectorPoint PointX="3" PointY="2.5189925130208328" />
+          <ConnectorPoint PointX="2.25" PointY="2.5189925130208333" />
+          <ConnectorPoint PointX="3" PointY="2.5189925130208333" />
         </AssociationConnector>
         <AssociationConnector Association="BuildingModel.FK_Projects_Users" >
-          <ConnectorPoint PointX="4.5" PointY="2.5574446614583328" />
-          <ConnectorPoint PointX="5.25" PointY="2.5574446614583328" />
+          <ConnectorPoint PointX="4.5" PointY="2.5574446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="2.5574446614583337" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="BuildingModel.Message" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333317" />
       </Diagram>
     </Diagrams>
   </Designer>

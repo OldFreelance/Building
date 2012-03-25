@@ -48,7 +48,7 @@
     <% } %>
     <p>Общество с ограниченной ответственностью «Пирамит», юридический адрес которого: г.Тольятти, ул. 70 лет Октября, д.8.</p>
     <p>Общество с ограниченной ответственностью (ООО «Пирамит») - это современная и динамично развивающаяся компания, работающая в сфере проектирования и строительства, расположенная в городе Тольятти. Образована 5 лет назад. Организацией было выполнено более 50 проектных разработок, завершено строительство 100 объектов, еще 3 объекта находятся на стадии строительства. Тел 8-917-976-4698.</p>
-    <%--<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Mail.aspx">Обратная связь</asp:HyperLink><br/>--%>
-    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="mailto:vmv_mirex@mail.ru">Обратная связь</asp:HyperLink><br/>
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Mail.aspx">Обратная связь</asp:HyperLink><br/>
+    <%--<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="mailto:vmv_mirex@mail.ru">Обратная связь</asp:HyperLink><br/>--%>
     <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="Files/Prays_polimer_materialov.doc">Прайс</asp:HyperLink>
 </asp:Content>
