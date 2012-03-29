@@ -304,6 +304,7 @@
     <Content Include="Admin\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="arial.ttf" />
     <None Include="Files\Prays_polimer_materialov.doc" />
   </ItemGroup>
   <ItemGroup>
