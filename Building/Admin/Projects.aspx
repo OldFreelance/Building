@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
         AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" 
-        DataSourceID="EntityDataSource1" Width="500px" CellPadding="4" 
+        DataSourceID="EntityDataSource1" Width="650px" CellPadding="4" 
         ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
@@ -18,9 +18,10 @@
                 </ItemTemplate>
                 <ItemStyle Width="100px" />
             </asp:TemplateField>
+            <asp:BoundField DataField="Name" HeaderText="Имя" SortExpression="Name" />
             <asp:BoundField DataField="BuildingPlace" HeaderText="Место" SortExpression="BuildingPlace" />
-            <asp:BoundField DataField="DateStart" HeaderText="Дата начала" SortExpression="DateStart" DataFormatString="{0:d}"/>
-            <asp:BoundField DataField="DateEnd" HeaderText="Дата оконч" SortExpression="DateEnd" DataFormatString="{0:d}"/>
+            <asp:BoundField DataField="DateStart" HeaderText="Дата начала" SortExpression="DateStart" DataFormatString="{0:D}"/>
+            <asp:BoundField DataField="DateEnd" HeaderText="Дата оконч" SortExpression="DateEnd" DataFormatString="{0:D}"/>
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

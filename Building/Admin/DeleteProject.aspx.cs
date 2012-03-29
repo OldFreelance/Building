@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Building.Code;
 
 namespace Building.Admin
 {
@@ -22,6 +23,7 @@ namespace Building.Admin
                     {
                         db.Projects.DeleteObject(obj);
                         db.SaveChanges();
+                        LogHelper.Write(string.Format("{0} удалил проект '{1}'", User.Identity.Name, obj.Name));
                     }
                 }
             }

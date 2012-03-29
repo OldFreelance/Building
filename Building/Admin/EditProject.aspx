@@ -15,6 +15,10 @@
         <EditItemTemplate>
             <table>
                 <tr>
+                    <td>Имя:</td>
+                    <td><asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' Width="300"/></td>
+                </tr>
+                <tr>
                     <td>Место:</td>
                     <td><asp:TextBox ID="BuildingPlaceTextBox" runat="server" Text='<%# Bind("BuildingPlace") %>' Width="300"/></td>
                 </tr>
@@ -56,6 +60,10 @@
         </EditItemTemplate>
         <InsertItemTemplate>
             <table>
+                <tr>
+                    <td>Имя:</td>
+                    <td><asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' Width="300"/></td>
+                </tr>
                 <tr>
                     <td>Место:</td>
                     <td><asp:TextBox ID="BuildingPlaceTextBox" runat="server" Text='<%# Bind("BuildingPlace") %>' Width="300"/></td>

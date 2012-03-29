@@ -74,6 +74,22 @@ namespace Building
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Message> Messages
+        {
+            get
+            {
+                if ((_Messages == null))
+                {
+                    _Messages = base.CreateObjectSet<Message>("Messages");
+                }
+                return _Messages;
+            }
+        }
+        private ObjectSet<Message> _Messages;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Post> Posts
         {
             get
@@ -106,6 +122,22 @@ namespace Building
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<UserLog> UserLogs
+        {
+            get
+            {
+                if ((_UserLogs == null))
+                {
+                    _UserLogs = base.CreateObjectSet<UserLog>("UserLogs");
+                }
+                return _UserLogs;
+            }
+        }
+        private ObjectSet<UserLog> _UserLogs;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<User> Users
         {
             get
@@ -118,25 +150,17 @@ namespace Building
             }
         }
         private ObjectSet<User> _Users;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Message> Messages
-        {
-            get
-            {
-                if ((_Messages == null))
-                {
-                    _Messages = base.CreateObjectSet<Message>("Messages");
-                }
-                return _Messages;
-            }
-        }
-        private ObjectSet<Message> _Messages;
 
         #endregion
         #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Messages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMessages(Message message)
+        {
+            base.AddObject("Messages", message);
+        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the Posts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -155,19 +179,19 @@ namespace Building
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the UserLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserLogs(UserLog userLog)
+        {
+            base.AddObject("UserLogs", userLog);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUsers(User user)
         {
             base.AddObject("Users", user);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Messages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToMessages(Message message)
-        {
-            base.AddObject("Messages", message);
         }
 
         #endregion
@@ -483,14 +507,16 @@ namespace Building
         /// Create a new Project object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
         /// <param name="buildingPlace">Initial value of the BuildingPlace property.</param>
         /// <param name="dateStart">Initial value of the DateStart property.</param>
         /// <param name="dateEnd">Initial value of the DateEnd property.</param>
         /// <param name="foremanId">Initial value of the ForemanId property.</param>
-        public static Project CreateProject(global::System.Int32 id, global::System.String buildingPlace, global::System.DateTime dateStart, global::System.DateTime dateEnd, global::System.Int32 foremanId)
+        public static Project CreateProject(global::System.Int32 id, global::System.String name, global::System.String buildingPlace, global::System.DateTime dateStart, global::System.DateTime dateEnd, global::System.Int32 foremanId)
         {
             Project project = new Project();
             project.Id = id;
+            project.Name = name;
             project.BuildingPlace = buildingPlace;
             project.DateStart = dateStart;
             project.DateEnd = dateEnd;
@@ -527,6 +553,30 @@ namespace Building
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1015,6 +1065,113 @@ namespace Building
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BuildingModel", Name="UserLog")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserLog : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserLog object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="date">Initial value of the Date property.</param>
+        /// <param name="text">Initial value of the Text property.</param>
+        public static UserLog CreateUserLog(global::System.Int32 id, global::System.DateTime date, global::System.String text)
+        {
+            UserLog userLog = new UserLog();
+            userLog.Id = id;
+            userLog.Date = date;
+            userLog.Text = text;
+            return userLog;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
+        partial void OnDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Text
+        {
+            get
+            {
+                return _Text;
+            }
+            set
+            {
+                OnTextChanging(value);
+                ReportPropertyChanging("Text");
+                _Text = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Text");
+                OnTextChanged();
+            }
+        }
+        private global::System.String _Text;
+        partial void OnTextChanging(global::System.String value);
+        partial void OnTextChanged();
+
+        #endregion
+    
     }
 
     #endregion

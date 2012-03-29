@@ -9,6 +9,7 @@
           <EntitySet Name="Messages" EntityType="BuildingModel.Store.Messages" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Posts" EntityType="BuildingModel.Store.Posts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Projects" EntityType="BuildingModel.Store.Projects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserLogs" EntityType="BuildingModel.Store.UserLogs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Users" EntityType="BuildingModel.Store.Users" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_Projects_Users" Association="BuildingModel.Store.FK_Projects_Users">
             <End Role="Users" EntitySet="Users" />
@@ -42,11 +43,20 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="BuildingPlace" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="DateStart" Type="date" Nullable="false" />
           <Property Name="DateEnd" Type="date" Nullable="false" />
           <Property Name="ForemanId" Type="int" Nullable="false" />
           <Property Name="BrigadeNum" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -91,8 +101,10 @@
     <edmx:ConceptualModels>
       <Schema Namespace="BuildingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="BuildingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Messages" EntityType="BuildingModel.Message" />
           <EntitySet Name="Posts" EntityType="BuildingModel.Post" />
           <EntitySet Name="Projects" EntityType="BuildingModel.Project" />
+          <EntitySet Name="UserLogs" EntityType="BuildingModel.UserLog" />
           <EntitySet Name="Users" EntityType="BuildingModel.User" />
           <AssociationSet Name="FK_Users_Posts" Association="BuildingModel.FK_Users_Posts">
             <End Role="Post" EntitySet="Posts" />
@@ -102,8 +114,17 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Project" EntitySet="Projects" />
           </AssociationSet>
-          <EntitySet Name="Messages" EntityType="BuildingModel.Message" />
         </EntityContainer>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nick" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="Id" />
@@ -118,12 +139,21 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="BuildingPlace" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DateStart" Nullable="false" />
           <Property Type="DateTime" Name="DateEnd" Nullable="false" />
           <Property Type="Int32" Name="ForemanId" Nullable="false" />
           <Property Type="String" Name="BrigadeNum" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="BuildingModel.FK_Projects_Users" FromRole="Project" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -165,22 +195,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Message">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Nick" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Date" Nullable="false" />
-          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BuildingModelStoreContainer" CdmEntityContainer="BuildingEntities">
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="BuildingModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Nick" ColumnName="Nick" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Posts">
             <EntityTypeMapping TypeName="BuildingModel.Post">
               <MappingFragment StoreEntitySet="Posts">
@@ -198,6 +229,16 @@
                 <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
                 <ScalarProperty Name="DateStart" ColumnName="DateStart" />
                 <ScalarProperty Name="BuildingPlace" ColumnName="BuildingPlace" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogs">
+            <EntityTypeMapping TypeName="BuildingModel.UserLog">
+              <MappingFragment StoreEntitySet="UserLogs">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -213,17 +254,6 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Messages">
-            <EntityTypeMapping TypeName="BuildingModel.Message">
-              <MappingFragment StoreEntitySet="Messages">
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Nick" ColumnName="Nick" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -249,18 +279,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Building">
-        <EntityTypeShape EntityType="BuildingModel.Post" Width="1.5" PointX="0.75" PointY="1.625" Height="1.7879850260416665" />
-        <EntityTypeShape EntityType="BuildingModel.Project" Width="1.5" PointX="5.25" PointY="1.375" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BuildingModel.User" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833313" />
+        <EntityTypeShape EntityType="BuildingModel.Message" Width="1.5" PointX="7.5" PointY="1.25" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="BuildingModel.Post" Width="1.5" PointX="0.75" PointY="1.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="BuildingModel.Project" Width="1.5" PointX="5.25" PointY="1.25" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="BuildingModel.UserLog" Width="1.5" PointX="9.5" PointY="1.25" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="BuildingModel.User" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833353" />
         <AssociationConnector Association="BuildingModel.FK_Users_Posts" >
-          <ConnectorPoint PointX="2.25" PointY="2.5189925130208333" />
-          <ConnectorPoint PointX="3" PointY="2.5189925130208333" />
+          <ConnectorPoint PointX="2.25" PointY="2.5189925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.5189925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="BuildingModel.FK_Projects_Users" >
-          <ConnectorPoint PointX="4.5" PointY="2.5574446614583337" />
-          <ConnectorPoint PointX="5.25" PointY="2.5574446614583337" />
+          <ConnectorPoint PointX="4.5" PointY="2.5285953776041659" />
+          <ConnectorPoint PointX="5.25" PointY="2.5285953776041659" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="BuildingModel.Message" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333317" />
       </Diagram>
     </Diagrams>
   </Designer>

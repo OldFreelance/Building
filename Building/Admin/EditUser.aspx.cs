@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Building.Code;
 
 namespace Building.Admin
 {
@@ -19,6 +20,7 @@ namespace Building.Admin
 
         protected void FormView1_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
+            string name = ((TextBox)FormView1.FindControl("LoginTextBox")).Text;
             switch (e.CommandName)
             {
                 case "Cancel":
@@ -26,10 +28,12 @@ namespace Building.Admin
                     break;
                 case "Update":
                     FormView1.UpdateItem(true);
+                    LogHelper.Write(string.Format("{0} отредактировал пользователя '{1}'", User.Identity.Name, name));
                     Response.Redirect("Users.aspx");
                     break;
                 case "Insert":
                     FormView1.InsertItem(true);
+                    LogHelper.Write(string.Format("{0} добавил пользователя '{1}'", User.Identity.Name, name));
                     Response.Redirect("Users.aspx");
                     break;
             }
