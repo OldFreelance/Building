@@ -20,7 +20,7 @@ namespace Building.Admin
 
         protected void FormView1_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
-            string name = ((TextBox)FormView1.FindControl("LoginTextBox")).Text;
+            string name = ((TextBox) FormView1.FindControl("LoginTextBox")).Text;
             switch (e.CommandName)
             {
                 case "Cancel":

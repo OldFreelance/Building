@@ -48,6 +48,14 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Паспорт:</td>
+                    <td><asp:TextBox ID="PassportTextBox" runat="server" Text='<%# Bind("Passport") %>' /></td>
+                </tr>
+                <tr>
+                    <td>Прописка:</td>
+                    <td><asp:TextBox ID="RegistrationTextBox" runat="server" Text='<%# Bind("Registration") %>' /></td>
+                </tr>
+                <tr>
                     <td>Администратор:</td>
                     <td><asp:CheckBox ID="IsAdminCheckBox" runat="server" Checked='<%# Bind("IsAdmin") %>' /></td>
                 </tr>
@@ -97,6 +105,14 @@
                             EntitySetName="Posts" Select="it.[Id], it.[Name]">
                         </asp:EntityDataSource>
                     </td>
+                </tr>
+                <tr>
+                    <td>Паспорт:</td>
+                    <td><asp:TextBox ID="PassportTextBox" runat="server" Text='<%# Bind("Passport") %>' /></td>
+                </tr>
+                <tr>
+                    <td>Прописка:</td>
+                    <td><asp:TextBox ID="RegistrationTextBox" runat="server" Text='<%# Bind("Registration") %>' /></td>
                 </tr>
                 <tr>
                     <td>Администратор:</td>

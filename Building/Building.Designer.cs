@@ -907,6 +907,54 @@ namespace Building
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Passport
+        {
+            get
+            {
+                return _Passport;
+            }
+            set
+            {
+                OnPassportChanging(value);
+                ReportPropertyChanging("Passport");
+                _Passport = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Passport");
+                OnPassportChanged();
+            }
+        }
+        private global::System.String _Passport;
+        partial void OnPassportChanging(global::System.String value);
+        partial void OnPassportChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Registration
+        {
+            get
+            {
+                return _Registration;
+            }
+            set
+            {
+                OnRegistrationChanging(value);
+                ReportPropertyChanging("Registration");
+                _Registration = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Registration");
+                OnRegistrationChanged();
+            }
+        }
+        private global::System.String _Registration;
+        partial void OnRegistrationChanging(global::System.String value);
+        partial void OnRegistrationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsAllow

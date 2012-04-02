@@ -67,6 +67,8 @@
           <Property Name="FIO" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="Passport" Type="nvarchar" MaxLength="50" />
+          <Property Name="Registration" Type="nvarchar" MaxLength="128" />
           <Property Name="IsAllow" Type="bit" Nullable="false" />
           <Property Name="OrderNo" Type="nvarchar" MaxLength="50" />
           <Property Name="PostId" Type="int" Nullable="false" />
@@ -164,6 +166,8 @@
           <Property Type="String" Name="FIO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Birthday" Nullable="false" />
+          <Property Type="String" Name="Passport" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Registration" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsAllow" Nullable="false" />
           <Property Type="String" Name="OrderNo" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="PostId" Nullable="false" />
@@ -250,6 +254,8 @@
                 <ScalarProperty Name="PostId" ColumnName="PostId" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
                 <ScalarProperty Name="IsAllow" ColumnName="IsAllow" />
+                <ScalarProperty Name="Registration" ColumnName="Registration" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
@@ -279,18 +285,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Building">
-        <EntityTypeShape EntityType="BuildingModel.Message" Width="1.5" PointX="7.5" PointY="1.25" Height="1.9802864583333317" />
-        <EntityTypeShape EntityType="BuildingModel.Post" Width="1.5" PointX="0.75" PointY="1.625" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="BuildingModel.Project" Width="1.5" PointX="5.25" PointY="1.25" Height="2.5571907552083317" />
-        <EntityTypeShape EntityType="BuildingModel.UserLog" Width="1.5" PointX="9.5" PointY="1.25" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="BuildingModel.User" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833353" />
+        <EntityTypeShape EntityType="BuildingModel.Message" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="BuildingModel.Post" Width="1.5" PointX="0.75" PointY="1.875" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="BuildingModel.Project" Width="1.5" PointX="5.25" PointY="1.5" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="BuildingModel.UserLog" Width="1.5" PointX="2.75" PointY="5.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="BuildingModel.User" Width="1.5" PointX="3" PointY="1" Height="3.5186979166666674" />
         <AssociationConnector Association="BuildingModel.FK_Users_Posts" >
-          <ConnectorPoint PointX="2.25" PointY="2.5189925130208337" />
-          <ConnectorPoint PointX="3" PointY="2.5189925130208337" />
+          <ConnectorPoint PointX="2.25" PointY="2.7689925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.7689925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="BuildingModel.FK_Projects_Users" >
-          <ConnectorPoint PointX="4.5" PointY="2.5285953776041659" />
-          <ConnectorPoint PointX="5.25" PointY="2.5285953776041659" />
+          <ConnectorPoint PointX="4.5" PointY="2.7785953776041659" />
+          <ConnectorPoint PointX="5.25" PointY="2.7785953776041659" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
