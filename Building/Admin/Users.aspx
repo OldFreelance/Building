@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
         AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" 
-        DataSourceID="EntityDataSource1" Width="500px" CellPadding="4" 
+        DataSourceID="EntityDataSource1" Width="600px" CellPadding="4" 
         ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
@@ -21,6 +21,8 @@
             <asp:BoundField DataField="Login" HeaderText="Логин" SortExpression="Login" />
             <asp:BoundField DataField="FIO" HeaderText="ФИО" SortExpression="FIO" />
             <asp:BoundField DataField="Birthday" HeaderText="Дата рождения" SortExpression="Birthday" DataFormatString="{0:D}" />
+            <asp:BoundField DataField="Passport" HeaderText="Паспорт" SortExpression="Passport" />
+            <asp:BoundField DataField="Registration" HeaderText="Прописка" SortExpression="Registration" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
